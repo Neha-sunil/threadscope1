@@ -102,6 +102,17 @@
             font-size: 16px;
         }
 
+        .hero {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
         .footer {
             text-align: center;
             padding: 15px;
@@ -128,14 +139,20 @@
         <a href="#">Profile</a>
     </div>
 
+    <div class="hero">
+        <img src="hero-image.jpg" alt="Community Discussion">
+        <p>Welcome to THREADSCOPE - A Place for Interactive Discussions and Knowledge Sharing!</p>
+    </div>
+
     <div class="language-selector">
         <label for="language">Choose Language:</label>
         <select id="language" onchange="translatePage()">
             <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
             <option value="hi">हिन्दी</option>
-            <option value="zh">中文</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ml">മലയാളം</option>
         </select>
     </div>
 
@@ -151,21 +168,12 @@
         function translatePage() {
             const lang = document.getElementById("language").value;
             const translations = {
-                en: {
-                    search: "Search questions...",
-                },
-                es: {
-                    search: "Buscar preguntas...",
-                },
-                fr: {
-                    search: "Rechercher des questions...",
-                },
-                hi: {
-                    search: "प्रश्न खोजें...",
-                },
-                zh: {
-                    search: "搜索问题...",
-                }
+                en: { search: "Search questions..." },
+                hi: { search: "प्रश्न खोजें..." },
+                ta: { search: "கேள்விகளைத் தேடுங்கள்..." },
+                te: { search: "ప్రశ్నలు వెతకండి..." },
+                kn: { search: "ಪ್ರಶ್ನೆಗಳನ್ನು ಹುಡುಕಿ..." },
+                ml: { search: "ചോദ്യങ്ങൾ തിരയുക..." }
             };
             document.getElementById("search").placeholder = translations[lang].search;
         }
