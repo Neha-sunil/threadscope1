@@ -23,12 +23,25 @@
             background-color: #0d47a1; /* Blue */
             padding: 15px;
             text-align: center;
+            position: relative;
         }
 
         .header h1 {
             color: white;
             font-size: 32px;
             margin-bottom: 10px;
+        }
+
+        .home-btn {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background-color: white;
+            color: #0d47a1;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
         }
 
         .search-bar {
@@ -55,10 +68,8 @@
             font-size: 16px;
             margin-left: 10px;
             cursor: pointer;
-         
         }
 
-       
         .search-bar button:hover {
             background-color: #1565c0;
         }
@@ -79,6 +90,18 @@
 
         .nav a:hover {
             color: #42a5f5;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .language-selector select {
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
         /* Content Section */
@@ -141,20 +164,32 @@
 
     <!-- Header -->
     <div class="header">
+        <button class="home-btn" onclick="window.location.href='index.html'">Home</button>
         <h1>THREADSCOPE</h1>
         <div class="search-bar">
-            <input type="text" placeholder="Search questions...">
+            <input type="text" id="search" placeholder="Search questions...">
             <button>Search</button>
         </div>
     </div>
 
     <!-- Navigation Bar -->
     <div class="nav">
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="#">Community</a>
         <a href="#">Answer</a>
-        
         <a href="profile.html">Profile</a>
+    </div>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <label for="language">Choose Language:</label>
+        <select id="language" onchange="translatePage()">
+            <option value="en">English</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="te">తెలుగు (Telugu)</option>
+            <option value="kn">ಕನ್ನಡ (Kannada)</option>
+            <option value="ml">മലയാളം (Malayalam)</option>
+        </select>
     </div>
 
     <!-- Main Content -->
@@ -183,9 +218,9 @@
             <div class="card">
                 <h3>Popular Community</h3>
                 <p>Anti Scape <button style="font-size:10px;padding: 10px;
-                                  background-color:blue;color:white;border-radius:15px"> join </button></p>
+                                  background-color:blue;color:white;border-radius:15px"> Join </button></p>
                 <p>Awareness Camp <button style="font-size:10px;padding: 10px;
-                                      background-color:blue;color:white;border-radius:15px"> join </button></p>
+                                      background-color:blue;color:white;border-radius:15px"> Join </button></p>
             </div>
         </div>
     </div>
@@ -194,6 +229,20 @@
     <div class="footer">
         <p>&copy; 2024 THREADSCOPE. All rights reserved.</p>
     </div>
+
+    <script>
+        function translatePage() {
+            const lang = document.getElementById("language").value;
+            const translations = {
+                en: { search: "Search questions..." },
+                ta: { search: "கேள்விகளைத் தேடு..." },
+                te: { search: "ప్రశ్నలను శోధించండి..." },
+                kn: { search: "ಪ್ರಶ್ನೆಗಳನ್ನು ಹುಡುಕಿ..." },
+                ml: { search: "ചോദ്യങ്ങൾ തിരയുക..." }
+            };
+            document.getElementById("search").placeholder = translations[lang].search;
+        }
+    </script>
 
 </body>
 </html>
