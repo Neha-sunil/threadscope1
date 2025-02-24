@@ -44,17 +44,29 @@
             cursor: pointer;
         }
 
-        /* Login Button */
-        .login-btn {
+        /* Login and Language Selector */
+        .header-right {
             position: absolute;
             right: 20px;
             top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .login-btn {
             background-color: white;
             color: #0d47a1;
             padding: 10px;
             border-radius: 5px;
             border: none;
             cursor: pointer;
+        }
+
+        .language-selector select {
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
         /* Navigation Bar */
@@ -113,18 +125,6 @@
             background-color: #1565c0;
         }
 
-        /* Language Selector */
-        .language-selector {
-            text-align: center;
-            margin: 15px;
-        }
-
-        .language-selector select {
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
         /* Profile Section */
         .profile {
             display: flex;
@@ -175,7 +175,18 @@
     <div class="header">
         <button class="home-btn" onclick="window.location.href='index.html'">Home</button>
         <h1>THREADSCOPE</h1>
-        <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <div class="header-right">
+            <div class="language-selector">
+                <select id="language" onchange="translatePage()">
+                    <option value="en">English</option>
+                    <option value="ta">தமிழ் (Tamil)</option>
+                    <option value="te">తెలుగు (Telugu)</option>
+                    <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                    <option value="ml">മലയാളം (Malayalam)</option>
+                </select>
+            </div>
+            <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+        </div>
     </div>
 
     <!-- Navigation Bar -->
@@ -184,18 +195,6 @@
         <a href="#">Community</a>
         <a href="#">Answer</a>
         <a href="profile.html">Profile</a>
-    </div>
-
-    <!-- Language Selector -->
-    <div class="language-selector">
-        <label for="language">Choose Language:</label>
-        <select id="language" onchange="translatePage()">
-            <option value="en">English</option>
-            <option value="ta">தமிழ் (Tamil)</option>
-            <option value="te">తెలుగు (Telugu)</option>
-            <option value="kn">ಕನ್ನಡ (Kannada)</option>
-            <option value="ml">മലയാളം (Malayalam)</option>
-        </select>
     </div>
 
     <!-- Profile Heading -->
@@ -236,19 +235,5 @@
     <div class="footer">
         <p>&copy; 2024 THREADSCOPE. All rights reserved.</p>
     </div>
-
-    <script>
-        function translatePage() {
-            const lang = document.getElementById("language").value;
-            const translations = {
-                en: { search: "Search profile activity..." },
-                ta: { search: "சுயவிவர செயல்பாட்டைத் தேடு..." },
-                te: { search: "ప్రొఫైల్ కార్యాచరణను శోధించండి..." },
-                kn: { search: "ಪ್ರೊಫೈಲ್ ಚಟುವಟಿಕೆಯನ್ನು ಹುಡುಕಿ..." },
-                ml: { search: "പ്രൊഫൈൽ പ്രവർത്തനം തിരയുക..." }
-            };
-            document.getElementById("search").placeholder = translations[lang].search;
-        }
-    </script>
 </body>
 </html>
