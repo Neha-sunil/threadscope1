@@ -35,88 +35,42 @@
             font-size: 32px;
         }
 
-        .logo {
-            width: 100px;
-            position: absolute;
-            left: 20px;
-            top: 10px;
-        }
-
-        .search-bar {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .search-bar input {
-            width: 70%;
-            padding: 10px;
-            border-radius: 25px;
-            border: none;
-            font-size: 16px;
-            outline: none;
-        }
-
-        .search-bar button {
-            padding: 10px;
-            border-radius: 25px;
-            background-color: #0d47a1;
-            border: none;
-            color: white;
-            font-size: 16px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
         .nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             background-color: #1a1a1a;
-            padding: 10px;
+            padding: 10px 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
         }
 
         .nav a {
             color: #90caf9;
             text-decoration: none;
             font-size: 18px;
-            margin: 0 15px;
         }
 
         .nav a:hover {
             color: #42a5f5;
         }
 
-        .toggle-btn {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            background-color: #0d47a1;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .language-selector {
-            margin: 10px;
-            text-align: center;
+        .right-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .language-selector select {
             padding: 5px;
             border-radius: 5px;
             font-size: 16px;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .hero img {
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
+            background-color: #2c2c2c;
+            color: white;
+            border: none;
         }
 
         .footer {
@@ -130,77 +84,34 @@
 </head>
 <body>
     <div class="header">
-        <img src="images/logo.png" alt="THREADSCOPE Logo" class="logo">
         <h1>THREADSCOPE</h1>
-        <button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button>
-        <div class="search-bar">
-            <input type="text" id="search" placeholder="Search questions...">
-            <button>Search</button>
-        </div>
     </div>
 
     <div class="nav">
-        <a href="index.html">Home</a>
-        <a href="community.html">Community</a>
-        <a href="answer.html">Answer</a>
-        <a href="profile.html">Profile</a>
-        <a href="signup.html">Sign Up</a>
-    </div>
-
-    <div class="language-selector">
-        <label for="language">Choose Language:</label>
-        <select id="language" onchange="translatePage()">
-            <option value="en">English</option>
-            <option value="ta">தமிழ் (Tamil)</option>
-            <option value="te">తెలుగు (Telugu)</option>
-            <option value="kn">ಕನ್ನಡ (Kannada)</option>
-            <option value="ml">മലയാളം (Malayalam)</option>
-        </select>
-    </div>
-
-    <div class="hero">
-        <img src="images/enthusiastic-image.jpg" alt="Enthusiastic Community">
-        <p id="welcome-text">Welcome to THREADSCOPE - A Place for Interactive Discussions and Knowledge Sharing!</p>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="community.html">Community</a>
+            <a href="answer.html">Answer</a>
+            <a href="profile.html">Profile</a>
+        </div>
+        
+        <div class="right-nav">
+            <a href="signup.html">Sign Up</a>
+            <div class="language-selector">
+                <select id="language" onchange="translatePage()">
+                    <option value="en">English</option>
+                    <option value="ta">தமிழ்</option>
+                    <option value="te">తెలుగు</option>
+                    <option value="kn">ಕನ್ನಡ</option>
+                    <option value="ml">മലയാളം</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <div class="footer">
         <p>&copy; 2024 THREADSCOPE. All rights reserved.</p>
     </div>
-
-    <script>
-        function toggleMode() {
-            document.body.classList.toggle('light-mode');
-        }
-
-        function translatePage() {
-            const lang = document.getElementById("language").value;
-            const translations = {
-                en: { 
-                    search: "Search questions...",
-                    welcome: "Welcome to THREADSCOPE - A Place for Interactive Discussions and Knowledge Sharing!"
-                },
-                ta: { 
-                    search: "கேள்விகளைத் தேடு...",
-                    welcome: "THREADSCOPE க்கு வரவேற்கிறோம் - கலந்துரையாடல்களுக்கு மற்றும் அறிவுப் பகிர்வுக்கு ஒரு இடம்!"
-                },
-                te: {      search: "ప్రశ్నలను శోధించండి...",
-                    welcome: "THREADSCOPE కి స్వాగతం - ఇంటరాక్టివ్ చర్చలు మరియు జ్ఞానాన్ని పంచుకోవడానికి ఒక ప్రదేశం!"
-                },
-                kn: { 
-                    search: "ಪ್ರಶ್ನೆಗಳನ್ನು ಹುಡುಕಿ...",
-                    welcome: "THREADSCOPE ಗೆ ಸ್ವಾಗತ - ಪರಸ್ಪರ ಚರ್ಚೆ ಮತ್ತು ಜ್ಞಾನ ಹಂಚಿಕೊಳ್ಳಲು ಒಂದು ಸ್ಥಳ!"
-                },
-                ml: { 
-                    search: "ചോദ്യങ്ങൾ തിരയുക...",
-                    welcome: "THREADSCOPE ലേക്ക് സ്വാഗതം - സംവാദങ്ങൾക്കും ജ്ഞാനം പങ്കിടുന്നതിനും ഒരു സ്ഥലം!"
-                }
-        
-            };
-
-            document.getElementById("search").placeholder = translations[lang].search;
-            document.getElementById("welcome-text").innerText = translations[lang].welcome;
-        }
-    </script>
 </body>
 </html>
-               
+        
