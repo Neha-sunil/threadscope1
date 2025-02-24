@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THREADSCOPE</title>
+    <title>THREADSCOPE - Sign Up</title>
     <style>
         /* Basic CSS Reset */
         * {
@@ -14,35 +14,74 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212; /* Dark Background */
-            color: #ffffff; /* White text */
+            background-color: #121212;
+            color: #ffffff;
         }
 
         /* Header */
         .header {
-            background-color: #0d47a1; /* Blue */
+            background-color: #0d47a1;
             padding: 15px;
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .header h1 {
             color: white;
-            font-size: 32px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #1a1a1a;
+            padding: 10px;
+        }
+
+        .nav a {
+            color: #90caf9;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 15px;
+        }
+
+        .nav a:hover {
+            color: #42a5f5;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            margin-left: 10px;
+        }
+
+        select {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            background-color: #0d47a1;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
         }
 
         /* Form Container */
         .form-container {
-            width:90%;
+            width: 90%;
             max-width: 400px;
             margin: 50px auto;
             background-color: #1c1c1c;
             padding: 20px;
             border-radius: 10px;
+            text-align: center;
         }
 
         .form-container h2 {
-            text-align: center;
             color: #90caf9;
             margin-bottom: 20px;
         }
@@ -61,10 +100,10 @@
         }
 
         .form-container input::placeholder {
-            color: #aaa; /* Placeholder color */
+            color: #aaa;
         }
 
-        /* Submit Button */
+        /* Buttons */
         .form-container button {
             width: 100%;
             padding: 10px;
@@ -74,11 +113,24 @@
             color: white;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
             transition: background-color 0.3s;
         }
 
         .form-container button:hover {
             background-color: #1565c0;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 15px;
+            color: #90caf9;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-link:hover {
+            color: #42a5f5;
         }
 
         /* Footer */
@@ -93,11 +145,26 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header with Home Button and Language Selector -->
     <div class="header">
+        <a href="index.html" style="color: white; text-decoration: none; font-size: 16px;">Home</a>
         <h1>THREADSCOPE</h1>
+        <select class="language-selector">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="hi">हिन्दी</option>
+        </select>
     </div>
-    
+
+    <!-- Navigation Bar -->
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="community.html">Community</a>
+        <a href="answer.html">Answer</a>
+        <a href="login.html">Login</a>
+    </div>
 
     <!-- Form Container -->
     <div class="form-container">
@@ -108,9 +175,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Sign Up</button>
         </form>
-        <a href="Q2.html">
-            <button type="submit">Sign Up</button>
-            </a>
+        <a href="login.html" class="login-link">Already have an account? Login</a>
     </div>
 
     <!-- Footer -->
@@ -120,3 +185,4 @@
 
 </body>
 </html>
+
