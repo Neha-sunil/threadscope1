@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THREADSCOPE</title>
     <style>
-        /* Basic CSS Reset */
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +13,8 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212; /* Dark Background */
-            color: #ffffff; /* White text */
+            background-color: #121212;
+            color: #ffffff;
             transition: background 0.3s ease-in-out;
         }
 
@@ -24,7 +23,6 @@
             color: #000000;
         }
 
-        /* Header */
         .header {
             background-color: #0d47a1;
             padding: 15px;
@@ -132,7 +130,7 @@
 </head>
 <body>
     <div class="header">
-        <img src="/mnt/data/A_modern,_minimalistic_logo_for_'THREADSCOPE'._The.png" alt="THREADSCOPE Logo" class="logo">
+        <img src="images/logo.png" alt="THREADSCOPE Logo" class="logo">
         <h1>THREADSCOPE</h1>
         <button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button>
         <div class="search-bar">
@@ -142,10 +140,11 @@
     </div>
 
     <div class="nav">
-        <a href="#">Home</a>
-        <a href="#">Community</a>
-        <a href="#">Answer</a>
-        <a href="#">Profile</a>
+        <a href="index.html">Home</a>
+        <a href="community.html">Community</a>
+        <a href="answer.html">Answer</a>
+        <a href="profile.html">Profile</a>
+        <a href="signup.html">Sign Up</a>
     </div>
 
     <div class="language-selector">
@@ -160,8 +159,8 @@
     </div>
 
     <div class="hero">
-        <img src="enthusiastic-image.jpg" alt="Enthusiastic Community">
-        <p>Welcome to THREADSCOPE - A Place for Interactive Discussions and Knowledge Sharing!</p>
+        <img src="images/enthusiastic-image.jpg" alt="Enthusiastic Community">
+        <p id="welcome-text">Welcome to THREADSCOPE - A Place for Interactive Discussions and Knowledge Sharing!</p>
     </div>
 
     <div class="footer">
@@ -176,14 +175,32 @@
         function translatePage() {
             const lang = document.getElementById("language").value;
             const translations = {
-                en: { search: "Search questions..." },
-                ta: { search: "கேள்விகளைத் தேடு..." },
-                te: { search: "ప్రశ్నలను శోధించండి..." },
-                kn: { search: "ಪ್ರಶ್ನೆಗಳನ್ನು ಹುಡುಕಿ..." },
-                ml: { search: "ചോദ്യങ്ങൾ തിരയുക..." }
+                en: { 
+                    search: "Search questions...",
+                    welcome: "Welcome to THREADSCOPE - A Place for Interactive Discussions and Knowledge Sharing!"
+                },
+                ta: { 
+                    search: "கேள்விகளைத் தேடு...",
+                    welcome: "THREADSCOPE க்கு வரவேற்கிறோம் - கலந்துரையாடல்களுக்கு மற்றும் அறிவுப் பகிர்வுக்கு ஒரு இடம்!"
+                },
+                te: {      search: "ప్రశ్నలను శోధించండి...",
+                    welcome: "THREADSCOPE కి స్వాగతం - ఇంటరాక్టివ్ చర్చలు మరియు జ్ఞానాన్ని పంచుకోవడానికి ఒక ప్రదేశం!"
+                },
+                kn: { 
+                    search: "ಪ್ರಶ್ನೆಗಳನ್ನು ಹುಡುಕಿ...",
+                    welcome: "THREADSCOPE ಗೆ ಸ್ವಾಗತ - ಪರಸ್ಪರ ಚರ್ಚೆ ಮತ್ತು ಜ್ಞಾನ ಹಂಚಿಕೊಳ್ಳಲು ಒಂದು ಸ್ಥಳ!"
+                },
+                ml: { 
+                    search: "ചോദ്യങ്ങൾ തിരയുക...",
+                    welcome: "THREADSCOPE ലേക്ക് സ്വാഗതം - സംവാദങ്ങൾക്കും ജ്ഞാനം പങ്കിടുന്നതിനും ഒരു സ്ഥലം!"
+                }
+        
             };
+
             document.getElementById("search").placeholder = translations[lang].search;
+            document.getElementById("welcome-text").innerText = translations[lang].welcome;
         }
     </script>
 </body>
 </html>
+               
